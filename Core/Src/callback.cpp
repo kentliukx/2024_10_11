@@ -115,7 +115,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if(htim->Instance == TIM6) {
         HAL_UART_Transmit_IT(&huart6, send, 4);
-        setmotor1(0x0000);
+        setmotor1(0x0070);
         HAL_CAN_AddTxMessage(&hcan1,&tx_header,tx_message, &buffer);
 
     }

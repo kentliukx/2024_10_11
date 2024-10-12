@@ -47,8 +47,9 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t rx_message[8];
+uint8_t rx_message[8], tx_message[8];
 CAN_RxHeaderTypeDef rx_header;
+CAN_TxHeaderTypeDef tx_header;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/

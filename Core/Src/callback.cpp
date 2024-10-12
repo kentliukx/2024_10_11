@@ -9,7 +9,10 @@
 
 extern uint8_t rx_message[8];
 extern CAN_RxHeaderTypeDef rx_header;
+extern CAN_TxHeaderTypeDef tx_header;
+extern uint8_t tx_message[8];
 uint8_t send[4];
+uint32_t buffer;
 
 class M3508_Motor {
     private:
@@ -89,16 +92,32 @@ void M3508_Motor::show(uint8_t send[4])
 M3508_Motor motor1;
 
 
+
+void setmotor1(int current)
+{
+    tx_header.StdId=0x200;
+    tx_header.IDE=CAN_ID_STD;
+    tx_header.RTR=CAN_RTR_DATA;
+    tx_header.DLC=8;
+    tx_message[2]=0;
+    tx_message[3]=current;
+
+}
+
+
+
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef* hcan) {
     HAL_CAN_GetRxMessage(&hcan1,CAN_RX_FIFO0,&rx_header,rx_message);
     motor1.canRxMsgCallback_v4(rx_message);
+    motor1.show(send);
 }
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if(htim->Instance == TIM6) {
-        motor1.show(send);
-//        HAL_UART_Transmit_IT(&huart6, rx_message, 8);
         HAL_UART_Transmit_IT(&huart6, send, 4);
+        setmotor1(0x0000);
+        HAL_CAN_AddTxMessage(&hcan1,&tx_header,tx_message, &buffer);
+
     }
 }
 

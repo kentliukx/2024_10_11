@@ -108,14 +108,20 @@ void setmotor1(int current)
 
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef* hcan) {
     HAL_CAN_GetRxMessage(&hcan1,CAN_RX_FIFO0,&rx_header,rx_message);
-    motor1.canRxMsgCallback_v4(rx_message);
-    motor1.show(send);
+    if(rx_header.StdId==0x202){
+        motor1.canRxMsgCallback_v4(rx_message);
+        motor1.show(send);
+    }
+    if(rx_header.StdId==0x100)
+    {
+        setmotor1(rx_message[3]);
+    }
+
 }
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if(htim->Instance == TIM6) {
-        HAL_UART_Transmit_IT(&huart6, send, 4);
-        setmotor1(0x0070);
+        HAL_UART_Transmit_IT(&huart6,send, 4);
         HAL_CAN_AddTxMessage(&hcan1,&tx_header,tx_message, &buffer);
 
     }

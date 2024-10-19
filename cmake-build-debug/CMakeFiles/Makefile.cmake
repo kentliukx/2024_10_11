@@ -102,7 +102,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Users/kentl/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake"
   "C:/Users/kentl/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/FeatureTesting.cmake"
   "C:/Users/kentl/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Generic.cmake"
-  "D:/Data/SJTU/Robomaster/CLionProjects/2024_10_11/CMakeLists.txt"
+  "D:/Data/SJTU/Robomaster/CLionProjects/2024_10_11_CAN/CMakeLists.txt"
   "CMakeFiles/3.29.6/CMakeASMCompiler.cmake"
   "CMakeFiles/3.29.6/CMakeCCompiler.cmake"
   "CMakeFiles/3.29.6/CMakeCXXCompiler.cmake"

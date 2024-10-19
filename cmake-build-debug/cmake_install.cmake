@@ -1,4 +1,4 @@
-# Install script for directory: D:/Data/SJTU/Robomaster/CLionProjects/2024_10_11
+# Install script for directory: D:/Data/SJTU/Robomaster/CLionProjects/2024_10_11_CAN
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Data/SJTU/Robomaster/CLionProjects/2024_10_11/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Data/SJTU/Robomaster/CLionProjects/2024_10_11_CAN/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
